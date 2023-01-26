@@ -38,13 +38,32 @@ h1 {
     align-items: center;
     flex-direction: column;
 }
+.photographer_section a {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}
 
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
 }
+.photographer_section article h3 {
+   font-weight: 600;
+}
 
+.photographer_section article div {
+    height: 200px;
+    width: 200px;
+}
 .photographer_section article img {
     height: 200px;
     width: 200px;
+    max-block-size: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: rgb(229, 229, 229);
+    padding: 3px;
 }

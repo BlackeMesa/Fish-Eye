@@ -11,27 +11,65 @@
     <header>
       <img src="assets/images/logo.png" class="logo" />
     </header>
-    <main id="main">
-      <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div>
+   <main id="main">
+        <section class="photograph-header"></section>
+        <section class="sort-container">
+            <label for="filter-select" class="filter-label">Trier par</label>
+            <select name="filters" id="filter-select">
+                <option value="popularite" class="sort-likes">Popularité</option>
+                <option value="titre" class="sort-title">Titre</option>
+                <option value="date" class="sort-date">Date</option>
+            </select>
+        </section>
+        <section class="photograph-media"></section>
+
+        <section class="like-and-price">
+            <div class="media-likes">
+                <h4 class="like-count"></h4>
+                <span class="fa-solid fa-heart heart-total-like"></span>
+            </div>
+        </section>
     </main>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input />
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
+     <div id="contact_modal" role="dialog" aria-label="Envoyer un message">
+        <div class="modal">
+            <header>
+                <div class="form-contact">
+                    <h2 class="modal-title">Contactez-moi</h2>
+                </div>
+                <img src="./assets/icons/close.svg" alt="Logo en forme de croix pour fermer le formulaire de contact" class="close-btn">
+            </header>
+            <div class="success"></div>
+            <form action="" id="form">
+                <div>
+                    <label for="prenom">Prénom</label>
+                    <input type="text" name="prenom" id="prenom" class="input" placeholder="Prénom" aria-labelledby="prenom" required>
+                    <span class="first-error"></span>
+                </div>
+
+                <div>
+                    <label for="nom">Nom</label>
+                    <input type="text" name="nom" id="nom" class="input" placeholder="Nom" aria-labelledby="nom" required>
+                    <span class="last-error"></span>
+                </div>
+
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="input" placeholder="Email" aria-labelledby="email" required>
+                    <span class="email-error"></span>
+                </div>
+
+                <div>
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="Votre message" required></textarea>
+                    <span class="message-error"></span>
+                </div>
+            </form>
+            <button class="submit-btn" type="submit">Envoyer</button>
+        </div>
+    </div>
     <script src="/scripts/pages/photographer.js"></script>
+    <script src="scripts/factories/photographer.js"></script>
+    <script src="scripts/factories/media.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>

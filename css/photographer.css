@@ -1,14 +1,28 @@
+
+
 #contact_modal {
+    font-family: "DM Sans", sans-serif;
     display: none;
+    background-color: rgba(187, 187, 187, 0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
 }
 
 .photograph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: 0 100px 50px 100px;
 }
 
-.contact_button {
+.contact_button,
+.submit-btn {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -21,38 +35,66 @@
     cursor: pointer;
 }
 
+.contact_button:hover,
+.contact_button:focus {
+    background-color: #DB8876;
+    color: #000;
+}
+
 .modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    margin: 25px auto;
+    position: relative;
 }
 
 .modal header {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
 .modal header img {
     cursor: pointer;
+    line-height: 1.15;
+}
+
+.form-contact {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+    text-align: left;
+    margin: 0;
 }
 
-form {
+.modal header h3 {
+    font-size: 54px;
+    margin: 0;
+}
+
+.modal header form {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
+}
+
+form {
+    width: 90%;
 }
 
 form label {
@@ -73,4 +115,296 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+#message {
+    width: 100%;
+    resize: none;
+    border: none;
+    border-radius: 5px;
+    height: 200px;
+}
+
+.success {
+    display: none;
+    background-color: green;
+    width: 90%;
+    height: 50px;
+    color: black;
+    text-align: center;
+    font-weight: 700;
+}
+
+
+
+
+.photograph-infos {
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    margin-left: 50px;
+}
+
+.photographer-name {
+    font-size: 64px;
+    margin: 0;
+    color: #D3573C;
+}
+
+.photograph-tagline {
+    font-size: 18px;
+    color: #525252;
+}
+
+.photograph-location {
+    margin: 0;
+    color: #901C1C;
+    font-size: 24px;
+}
+
+.contact_button {
+    margin: 0;
+    order: 2;
+}
+
+.photograph-portrait {
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    object-fit: cover;
+    margin: 0 50px 0 0;
+    order: 3;
+}
+
+/** Photographer Meda Section **/
+
+.photograph-media {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 90px;
+    place-items: center;
+    margin-bottom: 90px;
+}
+
+.photograph-media img,
+.photograph-media video {
+    height: 300px;
+    width: 350px;
+    object-fit: cover;
+}
+
+figure {
+    height: 300px;
+    width: 350px;
+}
+
+.figcaption {
+    display: flex;
+    justify-content: space-between;
+}
+
+.media-title {
+    font-size: 22px;
+    font-family: "DM Sans", sans-serif;
+    color: #901C1C;
+    margin: 0;
+}
+
+.like-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.total-like {
+    font-family: "DM Sans", sans-serif;
+    font-size: 24px;
+    color: #901C1C;
+    text-align: center;
+    margin: 0;
+}
+
+.heart-like {
+    font-size: 18px;
+    cursor: pointer;
+    background-color: transparent;
+    color: #901C1C;
+    margin-left: 3px;
+    border: none;
+}
+
+/** lightbox **/
+
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    z-index: 10;
+    animation: lightboxIn .5s;
+    transition: opacity .3s;
+}
+
+.lightbox.closed {
+    opacity: 0;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    border: none;
+    background: url("../assets/icons/arrow.svg") center center / 100% 100%;
+    width: 29px;
+    height: 48px;
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    margin-top: -22px;
+    z-index: 11;
+    text-indent: -3000px;
+}
+
+.lightbox-prev {
+    right: auto;
+    left: 20px;
+    transform: rotate(180deg);
+}
+
+.lightbox-close {
+    border: none;
+    background: url("../assets/icons/close-lightbox.svg") center center / 100% 100%;
+    width: 25px;
+    height: 25px;
+    position: fixed;
+    text-indent: -3000px;
+    top: 20px;
+    right: 20px;
+    z-index: 12;
+}
+
+.lightbox button {
+    color: white;
+    opacity: .5;
+    cursor: pointer;
+    border: none;
+    transition: opacity .3s;
+}
+
+.lightbox button:hover {
+    opacity: 1;
+}
+
+.lightbox-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.lightbox-container img {
+    max-width: 100%;
+    height: auto;
+    animation: lightboxIn .5s;
+}
+
+@keyframes lightboxIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.lightbox img {
+    width: 1050px;
+    height: 900px;
+    object-fit: cover;
+}
+
+.lightbox video {
+    width: 1050px;
+    height: 900px;
+}
+
+.lightbox-loader {
+    background: url('./assets/icons/loader.svg') center center no-repeat;
+    height: 38px;
+    width: 38px;
+    opacity: .5;
+}
+
+/* PHOTOGRAPHER INFOS */
+
+.like-and-price {
+    position: fixed;
+    bottom: 0;
+    right: 25px;
+    width: 260px;
+    height: 50px;
+    background-color: #DB8876;
+    border-radius: 5px 5px 0 0;
+}
+
+.media-likes {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 170px;
+    background-color: #DB8876;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.like-count {
+    margin: 0;
+    border: none;
+    background-color: #DB8876;
+    font-size: 24px;
+    width: 50px;
+}
+
+.media-price {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    position: fixed;
+    bottom: 0;
+    right: 50px;
+    background-color: #DB8876;
+    border: 5px;
+    height: 50px;
+}
+
+
+/** FILTERS **/
+
+.sort-container {
+    margin: 0 0 30px 102px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.filter-label {
+    margin-right: 20px;
+}
+
+#filter-select {
+    width: 170px;
+    height: 60px;
+    border-radius: 5px;
+    background-color: #901C1C;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+select:focus {
+    background-color: #DB8876;
 }
