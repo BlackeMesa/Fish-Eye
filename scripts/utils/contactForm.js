@@ -44,6 +44,21 @@ function keydown(e) {
   }
 }
 
+// AFFICHAGE DU NOM DU PHOTOGRAPHE
+function contactFactory(data) {
+    const { name } = data;
+
+    function getContactCardDOM() {
+        const contactForm = document.querySelector(".form-contact");
+        const photographerName = document.createElement("h3");
+        photographerName.textContent = name;
+
+        contactForm.appendChild(photographerName);
+    }
+
+    return { name, getContactCardDOM };
+}
+
 // FERMETURE MODALE SOURIS
 closeBtn.addEventListener("click", closeModal);
 

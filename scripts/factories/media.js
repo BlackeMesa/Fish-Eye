@@ -7,6 +7,7 @@ function mediaFactory(data) {
   function getMediasCardDOM() {
     // affichage de la gallerie
     const mediaSection = document.querySelector(".photograph-media");
+    
     const figure = document.createElement("figure");
     const caption = document.createElement("figcaption");
 
@@ -29,7 +30,7 @@ function mediaFactory(data) {
     heartBtn.classList.add("fa-solid");
     heartBtn.classList.add("fa-heart");
     heartBtn.classList.add("heart-like");
-    heartBtn.setAttribute("aria-label", "bouton-coeur");
+    heartBtn.setAttribute("aria-label", "likes");
 
     totalLike.classList.add("total-like");
     totalLike.innerText = likes;

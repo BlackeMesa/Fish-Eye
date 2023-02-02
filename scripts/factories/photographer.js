@@ -15,6 +15,9 @@ function photographerFactory(data) {
         localisationName.innerHTML= `${city}, ${country}`;
         description.innerHTML= tagline;
         totalPrice.innerHTML = `${price}€/jour`;
+        localisationName.className = "localisation";
+        description.className = "description";
+        totalPrice.className = "totalPrice";
         img.setAttribute("src", picture);
         img.setAttribute("alt", name);
         link.setAttribute("href", `/photographer.html?id=${id}`);
@@ -32,7 +35,6 @@ function photographerFactory(data) {
     }
     function getPhotographInfos() {
       const photographHeader = document.querySelector(".photograph-header");
-      const main = document.querySelector("main");
       const likeAndPrice = document.querySelector(".like-and-price");
 
       // creation du container

@@ -2,9 +2,8 @@
 
 body {
     font-family: "DM Sans", sans-serif;
-    margin: 0;
+    margin-bottom: 10rem;
 }
-
 
 header {
     display: flex;
@@ -20,15 +19,15 @@ h1 {
 }
 
 .logo {
-    height: 50px;
-    margin-left: 100px;
+    width: 200px;
+    margin: 100px 0 50px 130px;
 }
 
 .photographer_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .photographer_section article {
@@ -38,32 +37,37 @@ h1 {
     align-items: center;
     flex-direction: column;
 }
-.photographer_section a {
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-}
 
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
-}
-.photographer_section article h3 {
-   font-weight: 600;
+    margin-bottom: 0;
 }
 
-.photographer_section article div {
-    height: 200px;
-    width: 200px;
+.photographer_section article a {
+    text-decoration: none;
+    text-align: center;
 }
+
 .photographer_section article img {
     height: 200px;
     width: 200px;
-    max-block-size: 200px;
-    border-radius: 50%;
     object-fit: cover;
-    background-color: rgb(229, 229, 229);
-    padding: 3px;
+    border-radius: 100%;
+}
+
+.localisation {
+    margin: 0;
+    color: #901C1C;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.description{
+    margin: 3px;
+}
+
+.totalPrice {
+    color: #757575;
+    margin: 0;
 }

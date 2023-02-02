@@ -5,11 +5,15 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
     <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="/" alt="FishEye Home Page">
+            <img src="./assets/images/logo.png" class="logo" alt="logo FishEye - Page d'accueil" />
+        </a>
     </header>
    <main id="main">
         <section class="photograph-header"></section>
@@ -30,7 +34,7 @@
             </div>
         </section>
     </main>
-     <div id="contact_modal" role="dialog" aria-label="Envoyer un message">
+     <div id="contact_modal" role="dialog" aria-label="Contact Me">
         <div class="modal">
             <header>
                 <div class="form-contact">
@@ -67,9 +71,12 @@
             <button class="submit-btn" type="submit">Envoyer</button>
         </div>
     </div>
-    <script src="/scripts/pages/photographer.js"></script>
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="scripts/utils/contactForm.js"></script>
+    <script src="scripts/factories/likesfactory.js"></script>
+    <script src="scripts/factories/lightbox.js"></script>
+    <script src="scripts/pages/photographer.js"></script>
+    
   </body>
 </html>
