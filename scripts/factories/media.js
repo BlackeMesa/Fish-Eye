@@ -1,5 +1,5 @@
 function mediaFactory(data) {
-  const { photographerId, image, video, title, alt, likes } = data;
+  const { image, video, title, likes } = data;
 
   const mediaImage = `assets/medias/${image}`;
   const mediaVideo = `assets/medias/${video}`;
@@ -48,7 +48,7 @@ function mediaFactory(data) {
       link.setAttribute("href", mediaImage);
       image.setAttribute("src", mediaImage);
       image.classList.add("img");
-      image.setAttribute("alt", alt);
+      image.setAttribute("alt", title);
       link.appendChild(image);
     } else {
       const video = document.createElement("video");

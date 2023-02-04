@@ -7,7 +7,7 @@ class Lightbox {
     const altImg = Array.from(document.querySelectorAll(".img, .video"));
     const alt = altImg.map((text) => text.getAttribute("alt"));
     let main = document.querySelector("#main");
-console.log(links);
+
     // pour chaque lien d'image/vidéo cliqué
     links.forEach((link) =>
       link.addEventListener("click", (e) => {
