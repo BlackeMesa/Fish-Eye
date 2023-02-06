@@ -36,6 +36,7 @@ function displayMedias(medias) {
       photographerCreation.getMediasCardDOM();
       filterMedias(pictures);
       totalLikes(pictures);
+      
     }
   });
 
@@ -58,9 +59,11 @@ function likeCounter() {
       if (btnLike.classList.contains("liked")) {
         counter.textContent = Number(counter.textContent) + 1; 
         totalLike.textContent = Number(totalLike.textContent) + 1; 
+        console.log("ajout +1")
       } else {
         counter.textContent = Number(counter.textContent) - 1; 
         totalLike.textContent = Number(totalLike.textContent) - 1; 
+        console.log("retrait -1");
       }
     });
   }
@@ -83,6 +86,8 @@ function filterMedias(pictures) {
       pictures = pictures.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
       displayMedias(pictures);
     }
+    likeCounter();
+    Lightbox.init();
   });
 }
 

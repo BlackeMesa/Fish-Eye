@@ -325,13 +325,13 @@ figure {
 
 .lightbox img {
     width: 1050px;
-    height: 900px;
+    height: 700px;
     object-fit: cover;
 }
 
 .lightbox video {
     width: 1050px;
-    height: 900px;
+    height: 700px;
 }
 
 

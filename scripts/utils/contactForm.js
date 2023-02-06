@@ -1,4 +1,4 @@
-// DOM ELEMENTS
+//  dom elements
 const main = document.querySelector("#main");
 const modal = document.querySelector("#contact_modal");
 const firstName = document.querySelector("#prenom");
@@ -9,18 +9,18 @@ const submitBtn = document.querySelector(".submit-btn");
 const form = document.querySelector("#form");
 const closeBtn = document.querySelector(".close-btn");
 
-// MESSAGE DE SUCCES
+//  message de succes
 const success = document.querySelector(".success");
 const successMessage = document.createElement("p");
 success.appendChild(successMessage);
-
-// MESSAGES D'ERREUR
+ 
+// messages d'erreur
 const firstNameError = document.querySelector(".first-error");
 const lastNameError = document.querySelector(".last-error");
 const emailError = document.querySelector(".email-error");
 const messageError = document.querySelector(".message-error");
 
-// FONCTION OUVERTURE MODALE
+// fonction ouverutre modale
 function displayModal() {
   modal.style.display = "block";
   modal.setAttribute("aria-hidden", false);
@@ -28,7 +28,7 @@ function displayModal() {
   firstName.focus();
 }
 
-// FONCTION FERMETURE MODALE
+//  fonction fermeture modale
 function closeModal() {
   modal.style.display = "none";
   modal.setAttribute("aria-hidden", true);
@@ -37,14 +37,14 @@ function closeModal() {
   form.reset();
 }
 
-// FONCTION FERMETURE AVEC TOUCHE ECHAP
+// fermeture avec touche echap
 function keydown(e) {
   if (e.keyCode == 27) {
     closeModal();
   }
 }
 
-// AFFICHAGE DU NOM DU PHOTOGRAPHE
+// affichage du nom du photographe
 function contactFactory(data) {
     const { name } = data;
 
@@ -59,13 +59,13 @@ function contactFactory(data) {
     return { name, getContactCardDOM };
 }
 
-// FERMETURE MODALE SOURIS
+//  fermeture modale souris
 closeBtn.addEventListener("click", closeModal);
 
-// FERMETURE MODALE CLAVIER
+//  fermeture modale clavier
 document.addEventListener("keydown", keydown);
 
-// VERIFICATION DU FORMULAIRE
+// verification du formulaire
 function checkContactForm() {
     let checkForm = true;
     if (firstName.value == "") {
@@ -118,7 +118,7 @@ function checkContactForm() {
     return checkForm;
 }
 
-// RECUPERATION DU FORMULAIRE DANS LA CONSOLE
+// recuperation du formulaire dans la console
 submitBtn.addEventListener("click", () => {
     if (checkContactForm() === true) {
         success.style.display = "block";

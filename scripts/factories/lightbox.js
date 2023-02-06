@@ -15,7 +15,6 @@ class Lightbox {
         e.preventDefault();
         // On instencie une nouvelle Lightbox (url = current target, image et alt)
         new Lightbox(e.currentTarget.getAttribute("href"), images, alt);
-        console.log(new Lightbox(e.currentTarget.getAttribute("href"), images, alt));
         main.setAttribute("aria-hidden", true);
       })
     );
