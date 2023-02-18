@@ -26,6 +26,7 @@ function getPhotographInfos() {
   const contactBtn = document.createElement("button");
   contactBtn.classList.add("contact_button");
   contactBtn.setAttribute("onclick", "displayModal()");
+  contactBtn.setAttribute("aria-label", "Contactez-Moi");
   contactBtn.innerText = "Contactez-moi";
   photographHeader.appendChild(contactBtn);
   const photographerPortrait = document.createElement("img");

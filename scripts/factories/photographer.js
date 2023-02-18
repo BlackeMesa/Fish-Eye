@@ -1,38 +1,29 @@
-function photographerFactory(data) {
-    
+class Photographer {
+  constructor(data) {
     const { name, portrait, id, city, country, tagline, price } = data;
 
-    const picture = `assets/photographers/${portrait}`;
+    this.picture = `assets/photographers/${portrait}`;
+    this.name = name;
+    this.city = city;
+    this.country = country;
+    this.tagline = tagline;
+    this.price = price;
+    this.id = id;
+  }
 
-    function getUserCardDOM() {
-        const article = document.createElement( 'article' );
-        const containerImg = document.createElement('div');
-        const img = document.createElement( 'img' );
-        const localisationName = document.createElement( 'h3' );
-        const description = document.createElement( 'span' );
-        const totalPrice = document.createElement( 'span' );
-        const link = document.createElement( 'a')
-        localisationName.innerHTML= `${city}, ${country}`;
-        description.innerHTML= tagline;
-        totalPrice.innerHTML = `${price}€/jour`;
-        localisationName.className = "localisation";
-        description.className = "description";
-        totalPrice.className = "totalPrice";
-        img.setAttribute("src", picture);
-        img.setAttribute("alt", name);
-        link.setAttribute("href", `/photographer.html?id=${id}`);
-        const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
-        article.appendChild(link);
-        link.appendChild(containerImg);
-        containerImg.appendChild(img);
-        link.appendChild(h2);
-        article.appendChild(localisationName);
-        article.appendChild(description);
-        article.appendChild(totalPrice);
-
-        return (article);
-    }
-    
-    return {  getUserCardDOM };
+  getUserCardDOM() {
+    const article = document.createElement("article");
+    article.innerHTML = `
+    <a href="/photographer.html?id=${this.id}">
+      <div class="img-container">
+        <img src="${this.picture}" alt="${this.name}">
+      </div>
+      <h2>${this.name}</h2>
+    </a>
+    <h3 class="localisation">${this.city}, ${this.country}</h3>
+    <span class="description">${this.tagline}</span>
+    <span class="totalPrice">${this.price}€/jour</span>
+  `;
+    return article;
+  }
 }

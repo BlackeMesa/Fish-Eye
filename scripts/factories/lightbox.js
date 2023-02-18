@@ -129,10 +129,10 @@ class Lightbox {
     const dom = document.createElement("div");
     dom.classList.add("lightbox");
     dom.setAttribute("role", "dialog");
-    dom.setAttribute("aria-label", "lightbox");
-    dom.innerHTML = `<button class="lightbox-close">Fermer</button>
-        <button class="lightbox-next">Suivant</button>
-        <button class="lightbox-prev">Précent</button>
+    dom.setAttribute("aria-label", "image closeup view");
+    dom.innerHTML = `<button class="lightbox-close" aria-label="Close">Fermer</button>
+        <button class="lightbox-next" aria-label="Image suivante">Suivant</button>
+        <button class="lightbox-prev" aria-label="Image précédente">Précent</button>
         <div class="lightbox-container">
             <img src="${url}" alt="">
         </div>`;

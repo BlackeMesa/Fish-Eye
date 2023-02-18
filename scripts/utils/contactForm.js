@@ -50,7 +50,7 @@ function contactFactory(data) {
 
     function getContactCardDOM() {
         const contactForm = document.querySelector(".form-contact");
-        const photographerName = document.createElement("h3");
+        const photographerName = document.createElement("h2");
         photographerName.textContent = name;
 
         contactForm.appendChild(photographerName);

@@ -7,31 +7,23 @@ function mediaFactory(data) {
   function getMediasCardDOM() {
     // affichage de la gallerie
     const mediaSection = document.querySelector(".photograph-media");
-    
     const figure = document.createElement("figure");
     const caption = document.createElement("figcaption");
-
     const link = document.createElement("a");
     const mediaTitle = document.createElement("h3");
     const mediaLike = document.createElement("div");
     const totalLike = document.createElement("h4");
     const heartBtn = document.createElement("button");
-
     link.className = "gallery-link";
     link.setAttribute("title", title);
-
     caption.className = "figcaption";
-
     mediaTitle.className = "media-title";
     mediaTitle.innerHTML = title;
-
     mediaLike.classList.add("like-section");
-
     heartBtn.classList.add("fa-solid");
     heartBtn.classList.add("fa-heart");
     heartBtn.classList.add("heart-like");
     heartBtn.setAttribute("aria-label", "likes");
-
     totalLike.classList.add("total-like");
     totalLike.innerText = likes;
     mediaSection.appendChild(figure)
