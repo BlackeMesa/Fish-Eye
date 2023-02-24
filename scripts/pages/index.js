@@ -14,15 +14,7 @@ async function displayData(photographers) {
   const photographersSection = document.querySelector(".photographer_section");
 
   photographers.forEach((photographer) => {
-    const photographerCard = new Photographer({
-      name: photographer.name,
-      portrait: photographer.portrait,
-      id: photographer.id,
-      city: photographer.city,
-      country: photographer.country,
-      tagline: photographer.tagline,
-      price: photographer.price,
-    });
+    const photographerCard = new Photographer(photographer);
     const card = photographerCard.getUserCardDOM();
     photographersSection.appendChild(card);
   });
