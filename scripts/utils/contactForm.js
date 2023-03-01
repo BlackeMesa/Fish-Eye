@@ -66,61 +66,48 @@ closeBtn.addEventListener("click", closeModal);
 document.addEventListener("keydown", keydown);
 
 // verification du formulaire
-function checkContactForm() {
-    let checkForm = true;
-    if (firstName.value == "") {
-        firstNameError.textContent = "Merci d'indiquer votre prénom";
-        firstName.style.border = "solid 2px red";
-        firstName.setAttribute("aria-invalide", true);
-        checkForm = false;
+function checkCondition(condition) {
+  if (!condition) return false;
+  else return true;
+}
 
-    } else {
-        firstNameError.textContent = "";
-        firstName.style.border = "none";
-        firstName.setAttribute("aria-invalide", false);
+// Send specific error message rather than elementId provided
+// Add aria invalid for use CSS
+function getErrorMessage(elementId, message, inputAssociate) {
+  if (elementId && message) {
+    elementId.style.display = "block";
+    elementId.innerText = message;
+    if (inputAssociate) inputAssociate.setAttribute("aria-invalid", "true");
+  } else throw new Error("Missing parameter for handler error message");
+}
 
+//2nd submit, hide a valid field previous invlid
+// Swich aria invalid to false for use CSS
+function hideErrorMessage(elementId, inputAssociate) {
+  if (elementId) elementId.style.display = "none";
+  if (inputAssociate) inputAssociate.setAttribute("aria-invalid", "false");
+}
 
-    }
+function validate() {
+  const form = document.getElementsByName("reserve");
+  let firstNameValid = checkCondition(form[0][0]?.value) && checkCondition(form[0][0].value.length >= 2);
+  firstNameValid ? hideErrorMessage(firstNameError, form[0][0]) : getErrorMessage(firstNameError, "Veuillez entrer 2 caractères ou plus pour le champ du prénom.", form[0][0]);
+  let lastNameValid = checkCondition(form[0][1]?.value) && checkCondition(form[0][1].value.length >= 2);
+  lastNameValid ? hideErrorMessage(lastNameError, form[0][1]) : getErrorMessage(lastNameError, "Veuillez entrer 2 caractères ou plus pour le champ du nom.", form[0][1]);
 
-    if (lastName.value == "") {
-        lastNameError.textContent = "Merci d'indiquer votre nom";
-        lastName.style.border = "solid 2px red";
-        lastName.setAttribute("aria-invalide", true);
-        checkForm = false;
-    } else {
-        lastNameError.textContent = "";
-        lastName.style.border = "none";
-        lastName.setAttribute("aria-invalide", false);
-    }
+  //https://regex101.com/
+  let emailValid = checkCondition(form[0][2]?.value) && checkCondition(/[A-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/.test(form[0][2].value));
+  emailValid ? hideErrorMessage(emailError, form[0][2]) : getErrorMessage(emailError, "Veuillez entrer une adresse mail valide.", form[0][2]);
 
-    if (email.value == "") {
-        emailError.textContent = "Merci d'indiquer votre adresse email";
-        email.style.border = "solid 2px red";
-        email.setAttribute("aria-invalide", true);
-        checkForm = false;
-    } else {
-        emailError.textContent = "";
-        email.style.border = "none";
-        email.setAttribute("aria-invalide", false);
-    }
+if (firstNameValid && lastNameValid && emailValid ) {
+  return true
+}
 
-    if (message.value == "") {
-        messageError.textContent = "Merci d'indiquer votre message";
-        message.style.border = "solid 2px red";
-        message.setAttribute("aria-invalide", true);
-        checkForm = false;
-    } else {
-        messageError.textContent = "";
-        message.style.border = "none";
-        message.setAttribute("aria-invalide", false);
-    }
-
-    return checkForm;
 }
 
 // recuperation du formulaire dans la console
 submitBtn.addEventListener("click", () => {
-    if (checkContactForm() === true) {
+    if (validate() === true) {
         success.style.display = "block";
         successMessage.focus();
         successMessage.textContent = "Votre message a bien été envoyé.";
